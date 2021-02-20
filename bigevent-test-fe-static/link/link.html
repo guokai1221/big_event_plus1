@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友情链接</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/link.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>友情链接</span>
+            <button id="add_link" type="button" class="layui-btn layui-btn-normal">添加链接</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="15%">
+                    <col width="20%">
+                    <col width="30%">
+                    <col width="10%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>链接图标</th>
+                        <th>链接名称</th>
+                        <th>链接地址</th>
+                        <th>链接描述</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 数据 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--引入模板引擎 -->
+    <script src="../assets/lib/template-web.js"></script>
+    <!-- 链接列表 -->
+    <script type='text/html' id="table-tpl">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>
+                <div class='bg'>
+                    <img src="{{'http://localhost:8888/uploads/'+$value.linkicon}}">
+                </div>
+            </td>
+            <td>{{$value.linkname}}</td>
+            <td>{{$value.linkurl}}</td>
+            <td>{{$value.linkdesc}}</td>
+            <td>
+                <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs edit">编辑</button>
+                <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 添加链接 -->
+    <script type="text/html" id="add-form-tpl">
+        <form id='add-form' class="layui-form">
+            <!-- 1.链接名称 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">链接名称</label>
+              <div class="layui-input-block">
+                <input type="text" name="linkname" required  lay-verify="required" placeholder="请输入链接名称" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 2.链接地址 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">链接地址</label>
+              <div class="layui-input-block">
+                <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接地址" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 3.链接描述 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">链接描述</label>
+                <div class="layui-input-block">
+                  <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接描述" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 4.上传图片 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block icon-url">
+                    <button type="button" class="layui-btn layui-btn-sm" id="urlIcon">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="file" name="linkicon" id="linkFile" style="display: none;">
+                    <img id="preIcon" src="">
+                </div>
+            </div>
+            <!-- 5：按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <!-- 修改链接 -->
+    <script type="text/html" id="edit-form-tpl">
+        <form id='edit-form' lay-filter='editForm' class="layui-form">
+            <!-- 1.链接名称 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">链接名称</label>
+              <div class="layui-input-block">
+                <input type="text" name="linkname" required  lay-verify="required" placeholder="请输入链接名称" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 2.链接地址 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">链接地址</label>
+              <div class="layui-input-block">
+                <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接地址" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 3.链接描述 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">链接描述</label>
+                <div class="layui-input-block">
+                  <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接描述" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 4.上传图片 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block icon-url">
+                    <button type="button" class="layui-btn layui-btn-sm" id="urlIcon">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                    <input type="file" name="linkicon" id="linkFile" style="display: none;">
+                    <img id="preIcon" src="">
+                </div>
+            </div>
+            <!-- 5：按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/js/link/link.js"></script>
+</body>
+
+</html>

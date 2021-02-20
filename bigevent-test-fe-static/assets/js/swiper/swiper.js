@@ -19,7 +19,7 @@ $(function () {
     //轮播图状态切换
     $('.layui-table tbody').on('click', '.layui-badge', function (e) {
         //轮播图当前状态
-        let status = $(e.target).data('staitus')
+        let status = $(e.target).data('status')
         //轮播图的id
         let id = $(e.target).data('id')
         //发送ajax请求

@@ -14,7 +14,7 @@
     <div class="layui-card">
         <div class="layui-card-header">
             <span>友情链接</span>
-            <button id="add_link" type="button" class="layui-btn layui-btn-normal">添加链接</button>
+            <button id="add-link" type="button" class="layui-btn layui-btn-normal">添加链接</button>
         </div>
         <div class="layui-card-body">
             <table class="layui-table">
@@ -66,47 +66,47 @@
     </script>
     <!-- 添加链接 -->
     <script type="text/html" id="add-form-tpl">
-        <form id='add-form' class="layui-form">
-            <!-- 1.链接名称 -->
-            <div class="layui-form-item">
-              <label class="layui-form-label">链接名称</label>
-              <div class="layui-input-block">
-                <input type="text" name="linkname" required  lay-verify="required" placeholder="请输入链接名称" autocomplete="off" class="layui-input">
-              </div>
+        <form id="add-form" class="layui-form" style="margin: 15px 30px 0 0">
+          <!-- 1.链接名称 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">链接名称</label>
+            <div class="layui-input-block">
+              <input type="text" name="linkname" required  lay-verify="required" placeholder="请输入链接名称" autocomplete="off" class="layui-input">
             </div>
-            <!-- 2.链接地址 -->
-            <div class="layui-form-item">
-              <label class="layui-form-label">链接地址</label>
-              <div class="layui-input-block">
-                <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接地址" autocomplete="off" class="layui-input">
-              </div>
+          </div>
+          <!-- 2.链接地址 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">链接地址</label>
+            <div class="layui-input-block">
+              <input type="text" name="linkurl" required  lay-verify="required" placeholder="请输入链接地址" autocomplete="off" class="layui-input">
             </div>
-            <!-- 3.链接描述 -->
-            <div class="layui-form-item">
-                <label class="layui-form-label">链接描述</label>
-                <div class="layui-input-block">
-                  <input type="text" name="linkurl" required lay-verify="required" placeholder="请输入链接描述" autocomplete="off" class="layui-input">
-                </div>
+          </div>
+          <!-- 3.链接描述 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">链接描述</label>
+            <div class="layui-input-block">
+              <input type="text" name="linkdesc" required  lay-verify="required" placeholder="请输入链接描述" autocomplete="off" class="layui-input">
             </div>
-            <!-- 4.上传图片 -->
-            <div class="layui-form-item">
-                <div class="layui-input-block icon-url">
-                    <button type="button" class="layui-btn layui-btn-sm" id="urlIcon">
-                        <i class="layui-icon">&#xe67c;</i>上传图片
-                    </button>
-                    <input type="file" name="linkicon" id="linkFile" style="display: none;">
-                    <img id="preIcon" src="">
-                </div>
+          </div>
+          <!-- 4.上传图片 -->
+          <div class="layui-form-item">
+            <div class="layui-input-block icon-url">
+              <button type="button" class="layui-btn layui-btn-sm" id="urlIcon">
+                <i class="layui-icon">&#xe67c;</i>上传图片
+              </button>
+              <input type="file" name="linkicon" id="linkFile" style="display: none;">
+              <img id="preIcon" src="">
             </div>
-            <!-- 5：按钮 -->
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                </div>
+          </div>
+          <!-- 5.按钮 -->
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
+          </div>
         </form>
-    </script>
+      </script>
     <!-- 修改链接 -->
     <script type="text/html" id="edit-form-tpl">
         <form id='edit-form' lay-filter='editForm' class="layui-form">

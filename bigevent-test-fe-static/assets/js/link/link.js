@@ -1,7 +1,6 @@
 $(function () {
     var form = layui.form
 
-    //渲染数据
     function loadLinksInfo() {
         $.ajax({
             type: 'get',
@@ -13,17 +12,18 @@ $(function () {
         })
     }
 
-    loadLinksInfo();
+    loadLinksInfo()
 
-    //删出链接
+    // 删除链接
     $('.layui-table tbody').on('click', '.delete', function (e) {
-        var id = $(e.target).data("id")
-        layer.confirm('亲，不要删除人家嘛', function (index) {
+        var id = $(e.target).data('id')
+        layer.confirm('确实要删除吗？', function (index) {
             $.ajax({
                 type: 'delete',
                 url: 'admin/links/' + id,
                 success: function (res) {
                     if (res.status === 0) {
+                        // 删除成功
                         layer.close(index)
                         loadLinksInfo()
                     }
@@ -32,10 +32,10 @@ $(function () {
         })
     })
 
-    //编辑链接
+    // 编辑链接
     $('.layui-table tbody').on('click', '.edit', function (e) {
         var id = $(e.target).data('id')
-        //获取链接数据
+        // 获取链接数据
         $.ajax({
             type: 'get',
             url: 'admin/links/' + id,
@@ -44,19 +44,19 @@ $(function () {
                     type: 1,
                     title: '编辑友情链接',
                     content: $('#edit-form-tpl').html(),
-                    area: ['500px', "350px"]
+                    area: ['500px', '350px']
                 })
-                //设置预览图片效果
-                $('#perIcon').attr('src', 'http://localhost:8888/uploads/' + res.data.linkicon)
-                //初始化表单数据
+                // 设置预览图片效果
+                $('#preIcon').attr('src', 'http://localhost:8888/uploads/' + res.data.linkicon)
+                // 初始化表单数据
                 delete res.data.linkicon
                 form.val('editForm', res.data)
 
-                //绑定文件上传按钮点击事件
+                // 绑定文件上传按钮点击事件
                 $('#urlIcon').click(function () {
                     $('#linkFile').click()
                 })
-                //监听文件选中事件
+                // 监听文件选中事件
                 let file = null
                 $('#linkFile').change(function (e) {
                     const objectURL = URL.createObjectURL(e.target.files[0])
@@ -64,7 +64,7 @@ $(function () {
                     $('#preIcon').attr('src', objectURL)
                 })
 
-                //绑定表单提交事件
+                // 绑定表单提交事件
                 $('#edit-form').submit(function (e) {
                     e.preventDefault()
                     var fd = new FormData(this)
@@ -79,6 +79,7 @@ $(function () {
                         contentType: false,
                         success: function (res) {
                             if (res.status === 0) {
+                                // 编辑成功
                                 layer.close(index)
                                 loadLinksInfo()
                             }
@@ -89,26 +90,24 @@ $(function () {
         })
     })
 
-    //添加友情链接
+    // 添加链接
     $('#add-link').click(function () {
-        var index = open({
-            ype: 1,
+        var index = layer.open({
+            type: 1,
             title: '添加友情链接',
             content: $('#add-form-tpl').html(),
-            area: ['500px', "350px"]
+            area: ['500px', '350px']
         })
-        //绑定文件上传按钮点击事件
+        // 绑定文件上传按钮点击事件
         $('#urlIcon').click(function () {
             $('#linkFile').click()
         })
-        //监听文件选中事件
+        // 监听文件选中事件
         $('#linkFile').change(function (e) {
             const objectURL = URL.createObjectURL(e.target.files[0])
-            file = e.target.files[0]
             $('#preIcon').attr('src', objectURL)
         })
-
-        //绑定添加链接的提交事件
+        // 绑定添加链接的提交事件
         $('#add-form').submit(function (e) {
             e.preventDefault()
             var fd = new FormData(this)
@@ -120,11 +119,14 @@ $(function () {
                 contentType: false,
                 success: function (res) {
                     if (res.status === 0) {
+                        // 关闭窗口
                         layer.close(index)
+                        // 刷新列表
                         loadLinksInfo()
                     }
                 }
             })
         })
     })
+
 })

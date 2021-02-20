@@ -14,7 +14,7 @@ $(function () {
 
     loadLinksInfo()
 
-    // 删除链接
+    // 删除友情链接
     $('.layui-table tbody').on('click', '.delete', function (e) {
         var id = $(e.target).data('id')
         layer.confirm('确实要删除吗？', function (index) {
@@ -32,7 +32,7 @@ $(function () {
         })
     })
 
-    // 编辑链接
+    // 编辑友情链接
     $('.layui-table tbody').on('click', '.edit', function (e) {
         var id = $(e.target).data('id')
         // 获取链接数据
@@ -90,7 +90,7 @@ $(function () {
         })
     })
 
-    // 添加链接
+    // 添加友情链接
     $('#add-link').click(function () {
         var index = layer.open({
             type: 1,

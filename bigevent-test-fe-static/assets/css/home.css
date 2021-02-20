@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+}
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
+video{
+    width: 100%;
+}
+.weather-box{
+width: 1200px;
+height: 400px;
+position: absolute;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+}
+.weather-now{
+height: 210px;  
+}
+.now-pos{
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color:white;
+}
+.now-temp-box{
+    height: 120px;
+    color: white;
+
+}
+.now-temp-box .icon{
+    font-size: 60px;
+}
+.temp{
+    font-size: 90px;
+    line-height: 120px;
+}
+.now-text{
+    font-size: 70px;
+    line-height: 120px;
+}
+.now-other{
+    height: 30px;
+    line-height: 30px;
+    color: white;
+}
+.now-other div{
+    float: left;
+    background:rgba(0,0,0,0.5);
+    height: 100%;
+    padding: 0 15px;
+    margin-right: 15px;
+    border-radius: 15px;
+
+}
+.weather-future{
+height: 180px;
+margin-top: 10px;
+background:rgba(0,0,0,0.5);
+color: white;
+}
+h3{
+    margin: 0;
+    font-weight: normal;
+    height: 40px;
+    padding: 0 15px;
+    line-height: 40px;
+
+}
+.future-list{
+    height: 140px;
+    margin: 0;
+    padding: 0;
+}
+li{
+    height: 100%;
+    list-style: none;
+    float: left;
+    width: 14.28%;
+    text-align: center;
+    
+}
+li .icon{
+    line-height: 65px;
+    font-size: 50px;
+}
+li div{
+    line-height: 30px;
+    height: 30px;
+}
+.icon{
+    font-size: 18px;
+}

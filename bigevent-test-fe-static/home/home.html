@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1735977_lw8e165kfn8.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_716286_k4pk7clzzw.css">
 </head>
+
 <body>
-  主页
+  <video src="/assets/vedio/winter20191211.mp4" autoplay loop muted></video>
+  <section class="weather-box">
+    <!-- 实时天气开始 -->
+    <div class="weather-now">
+      <div class="now-pos">
+        <span class="icon iconfont icon-location "></span>
+        <span class="pos-text">山西太原</span>
+      </div>
+      <div class="now-temp-box">
+        <span class="temp">17°</span>
+        <span class="icon iconfont icon-100"></span>
+        <span class="now-text">阴</span>
+        <span class="last-update-time">12.20.25</span>
+      </div>
+      <div class="now-other">
+        <div class="now-hum">
+          <span class="icon iconfont icon-shidu1"></span>
+          <span class="hum-text">湿度%18</span>
+        </div>
+        <div class="now-wind">
+          <span class="icon iconfont icon-zhimingdafengche"></span>
+          <span class="wind-text">西南风 风力4级</span>
+        </div>
+      </div>
+    </div>
+    <!-- 实时天气结束 -->
+    <!-- 未来天气开始 -->
+    <div class="weather-future">
+      <h3>未来七天天气</h3>
+      <ul class="future-list">
+      </ul>
+    </div>
+    <!-- 未来天气结束 -->
+  </section>
+  <script src="/assets/js/home/home.js"></script>
+
+  </script>
 </body>
+
 </html>

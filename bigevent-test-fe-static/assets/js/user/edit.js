@@ -18,9 +18,9 @@ $(function () {
                 // console.log(res);
                 if (res.status === 0) {
                     form.val('editForm', res.data)
-                  } else {
+                } else {
                     layer.msg(res.message)
-                  }
+                }
             }
         })
     }
@@ -40,7 +40,7 @@ $(function () {
                 }
                 layer.msg('编辑用户成功!')
                 // 跳转页面
-                location.href = '/user/user.html'
+                location.href = '../user/user.html'
             }
         })
     })

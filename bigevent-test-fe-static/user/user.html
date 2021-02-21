@@ -2,50 +2,50 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 引入layui.css -->
-    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
-    <title>用户列表</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入layui.css -->
+  <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+  <title>用户列表</title>
 </head>
 
 <body>
-    <!-- 卡片区域 -->
-    <div class="layui-card">
-        <div class="layui-card-header">
-            <span>用户列表</span>
-        </div>
-        <div class="layui-card-body">
-            <!-- 文章列表 -->
-            <table class="layui-table">
-                <colgroup>
-                    <col width="100" />
-                    <col width="350" />
-                    <col width="250" />
-                    <col width="250" />
-                    <col width="350" />
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>账号名称</th>
-                        <th>昵称</th>
-                        <th>邮箱</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 数据 -->
-                </tbody>
-            </table>
-            <!-- 分页效果填充位置 -->
-            <div id="articlePage"></div>
-        </div>
+  <!-- 卡片区域 -->
+  <div class="layui-card">
+    <div class="layui-card-header">
+      <span>用户列表</span>
     </div>
+    <div class="layui-card-body">
+      <!-- 文章列表 -->
+      <table class="layui-table">
+        <colgroup>
+          <col width="100" />
+          <col width="350" />
+          <col width="250" />
+          <col width="250" />
+          <col width="350" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>账号名称</th>
+            <th>昵称</th>
+            <th>邮箱</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 数据 -->
+        </tbody>
+      </table>
+      <!-- 分页效果填充位置 -->
+      <div id="articlePage"></div>
+    </div>
+  </div>
 
-    <!-- 表格数据的模板 -->
-    <script type="text/html" id="table-tpl">
+  <!-- 表格数据的模板 -->
+  <script type="text/html" id="table-tpl">
     {{each data}}
     <tr>
       <td>{{$value.id}}</td>
@@ -91,16 +91,16 @@
   </script>
 
 
-    <!-- layui的js -->
-    <script src="/assets/lib/layui/layui.all.js"></script>
-    <!--jquery.js  -->
-    <script src="/assets/lib/jquery.js"></script>
-    <!-- 封装路径前缀的js -->
-    <script src="/assets/js/common.js"></script>
-    <!-- 定义模板的js -->
-    <script src="/assets/lib/template-web.js"></script>
-    <!-- 自己的js -->
-    <script src="/assets/js/user/user.js"></script>
+  <!-- layui的js -->
+  <script src="../assets/lib/layui/layui.all.js"></script>
+  <!--jquery.js  -->
+  <script src="../assets/lib/jquery.js"></script>
+  <!-- 封装路径前缀的js -->
+  <script src="../assets/js/common.js"></script>
+  <!-- 定义模板的js -->
+  <script src="../assets/lib/template-web.js"></script>
+  <!-- 自己的js -->
+  <script src="../assets/js/user/user.js"></script>
 </body>
 
 </html>

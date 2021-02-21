@@ -26,7 +26,7 @@ $(function () {
                 // console.log(res);
                 layer.msg(res.message)
                 // 跳转页面
-                location.href = '/user/user.html'
+                location.href = '../user/user.html'
             }
         })
     })

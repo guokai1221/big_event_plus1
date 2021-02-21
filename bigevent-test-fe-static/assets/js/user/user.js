@@ -1,13 +1,13 @@
 $(function () {
     var layer = layui.layer
     var laypage = layui.laypage
-    
+
     var form = layui.form
-     // 添加规则
-     form.verify({
+    // 添加规则
+    form.verify({
         pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],
         same: function (value) {
-             var uname =$('#repwd-form input[name=password]').val()
+            var uname = $('#repwd-form input[name=password]').val()
             //  console.log(value);
             //  console.log(uname);
             if (value !== uname) {
@@ -32,9 +32,9 @@ $(function () {
             data: q,
             success: function (res) {
                 // console.log(res);
-                if (res.status !== 0) {
-                    return layer.msg('获取分类数据失败！')
-                }
+                //if (res.status !== 0) {
+                 //   return layer.msg('获取分类数据失败！')
+               // }
                 var Str = template('table-tpl', res)
                 $('.layui-table tbody').html(Str)
                 // 调用渲染分页的方法
@@ -82,6 +82,7 @@ $(function () {
     // 删除---通过代理的方式
     $('.layui-table tbody').on('click', '.layui-btn-danger', function (e) {
         // console.log("ok");
+        var len = $('.layui-btn-danger').length
         var id = $(e.target).data("id")//获取id
         layer.confirm('确认要删除用户吗？', { icon: 3, title: '提示' }, function (index) {
             $.ajax({
@@ -89,6 +90,11 @@ $(function () {
                 url: 'admin/users/' + id,
                 success: function (res) {
                     layer.msg(res.message)
+                    if (len === 1) {
+                        // 如果 len 的值等于1，证明删除完毕之后，页面上就没有任何数据了
+                        // 页码值最小必须是 1
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
                     // 渲染页面
                     loadUserList()
                 }
@@ -118,7 +124,7 @@ $(function () {
                 method: "PUT",
                 url: 'admin/users/' + id,
                 data: {
-                    password:$('#repwd-form input[name=password]').val()
+                    password: $('#repwd-form input[name=password]').val()
                 },
                 success: function (res) {
                     // console.log(res);

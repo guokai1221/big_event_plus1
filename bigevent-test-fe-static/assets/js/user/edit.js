@@ -18,9 +18,9 @@ $(function () {
                 // console.log(res);
                 if (res.status === 0) {
                     form.val('editForm', res.data)
-                  } else {
+                } else {
                     layer.msg(res.message)
-                  }
+                }
             }
         })
     }

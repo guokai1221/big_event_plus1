@@ -40,7 +40,7 @@ $(function () {
                 }
                 layer.msg('编辑用户成功!')
                 // 跳转页面
-                location.href = '/user/user.html'
+                location.href = '../user/user.html'
             }
         })
     })

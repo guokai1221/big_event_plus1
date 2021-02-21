@@ -1,6 +1,6 @@
 $(function () {
     var form = layui.form
-
+    //渲染数据
     function loadLinksInfo() {
         $.ajax({
             type: 'get',
@@ -14,8 +14,9 @@ $(function () {
 
     loadLinksInfo()
 
-    // 删除友情链接
+    // 删除链接
     $('.layui-table tbody').on('click', '.delete', function (e) {
+        //当前行的id
         var id = $(e.target).data('id')
         layer.confirm('确实要删除吗？', function (index) {
             $.ajax({
@@ -34,6 +35,7 @@ $(function () {
 
     // 编辑友情链接
     $('.layui-table tbody').on('click', '.edit', function (e) {
+        //当前行的id
         var id = $(e.target).data('id')
         // 获取链接数据
         $.ajax({
@@ -90,7 +92,7 @@ $(function () {
         })
     })
 
-    // 添加友情链接
+    // 添加链接
     $('#add-link').click(function () {
         var index = layer.open({
             type: 1,

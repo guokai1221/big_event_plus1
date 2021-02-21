@@ -38,7 +38,7 @@ $(function () {
         // 把无效的token清除
         localStorage.removeItem('mytoken')
         // 如果身份验证失败了，就跳转到登录页面
-        parent.window.location.href = '../login1.html'
+        parent.window.location.href = '../../login.html'
       }
     }
   })

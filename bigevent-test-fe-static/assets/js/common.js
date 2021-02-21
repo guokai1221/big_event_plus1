@@ -1,9 +1,5 @@
 $(function () {
-  /*
-    通用的接口调用设置
-  */
-  // var baseURL = 'http://ajax.frontend.itheima.net/'
-  // var baseURL = 'http://www.liulongbin.top:3007/'
+
   var baseURL = 'http://localhost:8888/'
 
   // 所有的请求发送之前经过该函数，可以对相关请求和响应做一些调整
